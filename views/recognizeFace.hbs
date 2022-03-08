@@ -1,0 +1,71 @@
+<div class="background">
+    <div class="container">
+        <nav class="navbar navbar-light ">
+        <div class="container-fluid py-4  ">
+            <button class="btn btn-lg btn-outline-success ms-auto  " type="button"><a href="/aboutus">
+            About Us</a></button>
+            <button class="btn  btn-lg btn-outline-success ms-3 " type="button"><a href="/">Back</a></button>
+        </div>
+        
+        </nav>
+        <div class="row pt-5">
+        <div class="col-lg-8" style="top: -50">
+            <video autoplay></video>
+        </div>
+        <div class="detect col-lg-4 ">
+            <div class="row text-center ">
+            
+            <div class="col-lg-12 text-white">Person detected</div>
+            <div class="col-lg-12 fs-1 text-white" id="predicted-person"></div>
+            
+            </div>
+            </div>
+        </div>       
+    </div>
+</div>
+    {{!-- <video autoplay></video> --}}
+<script>
+    // get video dom element
+    const video = document.querySelector('video');
+    
+    // request access to webcam
+    navigator.mediaDevices.getUserMedia({video: {width: 426, height: 240}}).then((stream) => video.srcObject = stream);
+    
+    // returns a frame encoded in base64
+    const getFrame = () => {
+        const canvas = document.createElement('canvas');
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        canvas.getContext('2d').drawImage(video, 0, 0);
+        var data = canvas.toDataURL('image/jpeg', 1.0);
+        return data;
+    }
+    function downloadImage(data, filename = 'untitled.png') {
+        var a = document.createElement('a');
+        a.href = data;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+    }
+
+    const WS_URL = 'ws://localhost:8001';
+    const FPS = 3;
+    const ws = new WebSocket(WS_URL);
+    ws.onopen = () => { 
+        console.log(`Connected to ${WS_URL}`);
+        setInterval(() => {
+            ws.send(getFrame());
+            console.log(getFrame());
+        }, 1000 / FPS);
+    }
+    
+    const predited_person = document.getElementById('predicted-person');
+
+    ws.onmessage = message => {
+        // set the base64 string to the src tag of the image
+        console.log(message.data.toString())
+        data = message.data.toString()
+        //{{!-- img.src = `data:image/jpeg;base64,${message.data}`; --}}
+        predited_person.innerHTML = data
+    }
+</script>

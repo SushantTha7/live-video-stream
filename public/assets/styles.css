@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Open+Sans:wght@300;400;500;600;700&family=Signika+Negative:wght@300;400;500;600;700&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700&display=swap');
 footer{
     color: #777;
     text-align: center;
@@ -10,3 +11,131 @@ h3{
     text-transform: capitalize;
     margin-bottom: 8px;
 }
+
+body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.background{
+    background: url(https://vsthemes.org/uploads/posts/2021-09/1632130609_travel-and-earn.jpg)rgba(0,0,0,0.8) ;
+    background-blend-mode: darken;
+    height: 100vh;
+ 
+}
+
+
+.content{
+  
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+ 
+  
+    
+}
+.click{
+  line-height: 1.5;
+  text-transform: uppercase;
+    font-size: 3.6rem;
+    
+}
+
+button a{
+    text-decoration: none;
+    color: rgb(25,135,84);
+ 
+}
+button a:hover{
+    color: white;
+}
+.detect{
+    width: auto;
+    border-radius: 20px;
+}
+.detect img{
+    width: 100%;
+    height: auto;    
+    border: 6px solid rgb(25,135,84);
+    border-radius: 15px;
+    
+}
+.person{
+    padding-top: 120px;
+    font-size: 3rem;
+    line-height: 3;
+}
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 25rem;
+    padding: 2.5rem;
+    box-sizing: border-box;
+    background: transparent;
+    border-radius: 0.625rem;
+   
+  }
+  
+  .box h2 {
+    margin: 0 0 1.875rem;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+  }
+  
+  .box .inputBox {
+    position: relative;
+  }
+  
+  .box .inputBox input {
+    width: 100%;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: #fff;
+    letter-spacing: 0.062rem;
+    margin-bottom: 1.875rem;
+    border: none;
+    border-bottom: 0.065rem solid #fff;
+    outline: none;
+    background: transparent;
+  }
+  
+  .box .inputBox label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    color: #fff;
+    pointer-events: none;
+    transition: 0.5s;
+  }
+  
+  .box .inputBox input:focus ~ label,
+  .box .inputBox input:valid ~ label,
+  .box .inputBox input:not([value=""]) ~ label {
+    top: -1.125rem;
+    left: 0;
+    color: #03a9f4;
+    font-size: 0.75rem;
+  }
+  
+  .box input[type="submit"] {
+    border: none;
+    outline: none;
+    border: 2px solid rgb(25,135,84);
+    color: rgb(25,135,84);
+    background-color:transparent;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.312rem;
+    font-size: 1rem;
+  }
+  
+  .box input[type="submit"]:hover {
+    background-color: rgb(25,135,84);
+    color:white
+  }

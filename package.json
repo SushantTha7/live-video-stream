@@ -9,6 +9,7 @@
   "author": "juhel",
   "license": "ISC",
   "dependencies": {
+    "child-process": "^1.0.2",
     "express": "^4.17.3",
     "express-handlebars": "^6.0.3",
     "image-data-uri": "^2.0.1",
